@@ -209,23 +209,78 @@ const getPackageInfo = async (item) => {
     return item;
 };
 
+const getMarkDownTable = function(d) {
+    //console.log(d);
+    const lines = [];
+
+    const header = [''];
+    d.columns.forEach((c, i) => {
+        const cn = c.name || '';
+        header.push(cn.padEnd(c.width, ' '));
+    });
+    lines.push(header.join('|'));
+
+    const line = [''];
+    d.columns.forEach((c) => {
+        if (c.align === 'right') {
+            line.push(`${''.padEnd(c.width - 1, '-')}:`);
+        } else {
+            line.push(''.padEnd(c.width, '-'));
+        }
+
+    });
+    lines.push(line.join('|'));
+
+    d.rows.forEach((r) => {
+        const row = [''];
+        d.columns.forEach((c, i) => {
+            const s = `${r[i]}`;
+            if (c.align === 'right') {
+                row.push(s.padStart(c.width, ' '));
+            } else {
+                row.push(s.padEnd(c.width, ' '));
+            }
+        });
+        lines.push(row.join('|'));
+    });
+
+    return lines.join('\r\n');
+};
+
 const generateReadme = (list) => {
     EC.logCyan('generating list ...');
-    const projects = list.map((item) => {
-        const ls = [
-            `## [${item.name}](https://github.com/cenfun/${item.name})`,
+    const projects = list.map((item, i) => {
+        return [
+            i + 1,
+            `[${item.name}](https://github.com/cenfun/${item.name})`,
             `![npm](https://img.shields.io/npm/v/${item.name}) `,
-            `![npm](https://img.shields.io/npm/dw/${item.name})`,
-            //`> ${item.description}`,
-            '\n'
+            `![npm](https://img.shields.io/npm/dw/${item.name})`
         ];
-        return ls.join('\n');
     });
+
+    const d = {
+        columns: [{
+            name: '',
+            width: 2,
+            align: 'right'
+        }, {
+            name: 'Name',
+            width: 32
+        }, {
+            name: 'Version',
+            width: 7
+        }, {
+            name: 'Downloads',
+            width: 8
+        }],
+        rows: projects
+    };
+
 
     let content = readFileContent(path.resolve(__dirname, 'template/README.md'));
     console.log(content);
     content = replace(content, {
-        'placeholder-projects': projects.join('\n')
+        'placeholder-projects': getMarkDownTable(d)
     });
 
     writeFileContent(path.resolve(__dirname, '../README.md'), content);

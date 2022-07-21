@@ -1,5 +1,5 @@
 ### Hi 👋
 
-I'm Front-end/Node.js developer. Please check out my open source projects following.
+I'm Front-end/Node.js developer. Check my top open source projects following.
 
 {placeholder-projects}
