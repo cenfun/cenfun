@@ -253,6 +253,7 @@ const generateReadme = (list) => {
         return [
             i + 1,
             `[${item.name}](https://github.com/cenfun/${item.name})`,
+            item.description,
             `![npm](https://img.shields.io/npm/v/${item.name}) `,
             `![npm](https://img.shields.io/npm/dw/${item.name})`
         ];
@@ -265,7 +266,10 @@ const generateReadme = (list) => {
             align: 'right'
         }, {
             name: 'Name',
-            width: 32
+            width: 30
+        }, {
+            name: '',
+            width: 50
         }, {
             name: 'Version',
             width: 7
