@@ -369,7 +369,7 @@ const start = async () => {
         rows: rows
     });
 
-    downloads.length = 15;
+    //downloads.length = 15;
 
     generateReadme(downloads);
 
