@@ -216,7 +216,7 @@ const generateReadme = (list) => {
             `## [${item.name}](https://github.com/cenfun/${item.name})`,
             `![npm](https://img.shields.io/npm/v/${item.name}) `,
             `![npm](https://img.shields.io/npm/dw/${item.name})`,
-            `> ${item.description}`,
+            //`> ${item.description}`,
             '\n'
         ];
         return ls.join('\n');
