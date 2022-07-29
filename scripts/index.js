@@ -253,8 +253,8 @@ const generateReadme = (list) => {
         return [
             i + 1,
             `[${item.name}](https://github.com/cenfun/${item.name})`,
-            `![npm](https://img.shields.io/npm/v/${item.name}) `,
-            `![npm](https://img.shields.io/npm/dw/${item.name})`
+            `[![npm](https://img.shields.io/npm/v/${item.name})](https://www.npmjs.com/package/${item.name})`,
+            `[![npm](https://img.shields.io/npm/dw/${item.name})](https://www.npmjs.com/package/${item.name})`
         ];
     });
 
@@ -278,12 +278,14 @@ const generateReadme = (list) => {
 
 
     let content = readFileContent(path.resolve(__dirname, 'template/README.md'));
-    console.log(content);
+    //console.log(content);
     content = replace(content, {
         'placeholder-projects': getMarkDownTable(d)
     });
 
     writeFileContent(path.resolve(__dirname, '../README.md'), content);
+
+    EC.logGreen('saved README.md');
 };
 
 const start = async () => {
