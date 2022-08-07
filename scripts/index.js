@@ -284,8 +284,10 @@ const generateReadme = (list) => {
         return [
             i + 1,
             `[${item.name}](https://github.com/cenfun/${item.name})`,
-            `[![npm](https://img.shields.io/npm/v/${item.name})](https://www.npmjs.com/package/${item.name})`,
-            `[![npm](https://img.shields.io/npm/dw/${item.name})](https://www.npmjs.com/package/${item.name})`
+            `![npm](https://img.shields.io/npm/v/${item.name})`,
+            `[![npm](https://img.shields.io/npm/dw/${item.name})](https://www.npmjs.com/package/${item.name})`,
+            `[![dependencies](https://img.shields.io/librariesio/github/cenfun/${item.name})](https://github.com/cenfun/${item.name}/network/dependencies)`,
+            `[![dependents](https://img.shields.io/librariesio/dependents/npm/${item.name})](https://github.com/cenfun/${item.name}/network/dependents)`
         ];
     });
 
@@ -302,7 +304,13 @@ const generateReadme = (list) => {
             width: 7
         }, {
             name: 'Downloads',
-            width: 8
+            width: 9
+        }, {
+            name: 'Dependencies',
+            width: 12
+        }, {
+            name: 'dependents',
+            width: 10
         }],
         rows: projects
     };
