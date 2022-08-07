@@ -4,6 +4,8 @@ const path = require('path');
 const EC = require('eight-colors');
 const PCR = require('puppeteer-chromium-resolver');
 const ConsoleGrid = require('console-grid');
+const axios = require('axios');
+const cheerio = require('cheerio');
 
 const date = new Date().toLocaleDateString();
 
@@ -114,6 +116,12 @@ const launchBrowser = async () => {
     return browser;
 };
 
+const closeBrowser = async () => {
+    if (browser) {
+        await browser.close();
+    }
+};
+
 const generatePackages = async () => {
 
     await launchBrowser();
@@ -121,6 +129,7 @@ const generatePackages = async () => {
     const url = 'https://www.npmjs.com/~cenfun';
     EC.logCyan(`open page ${url} ...`);
     await page.goto(url);
+    await delay(500);
 
     EC.logCyan('getting packages ...');
     const packages = await page.evaluate(async () => {
@@ -167,35 +176,57 @@ const generatePackages = async () => {
     await page.close();
     EC.logCyan('page closed');
 
+    await closeBrowser();
+
     return packages;
 };
 
 
 const generatePackageInfo = async (item) => {
 
-    await launchBrowser();
-    const page = await browser.newPage();
-    EC.logCyan(`open page ${item.url} ...`);
-    await page.goto(item.url);
+    const svgUrl = `https://img.shields.io/npm/dw/${item.name}`;
 
-    EC.logCyan('getting package info ...');
-    const info = await page.evaluate(() => {
-        return window.__context__ && window.__context__.context;
+    EC.logCyan(`loading info ${svgUrl} ...`);
+
+    let failed;
+    const res = await axios.get(svgUrl, {
+        timeout: 10 * 1000
+    }).catch(function(e) {
+        EC.logRed(e);
+        failed = true;
     });
 
-    await page.close();
-    await delay(500);
-
-    if (!info) {
-        EC.logRed(`Failed to get info: ${item.name}`);
+    if (failed) {
         return;
     }
 
-    return info;
+    const $ = cheerio.load(res.data, {
+        xmlMode: true
+    });
+
+    const text = $('svg').find('text').last().text();
+    if (!text) {
+        EC.logRed(`Not found text: ${item.name}`);
+        return;
+    }
+    const v = text.split('/').shift();
+    let unit = 1;
+    if (v.endsWith('k')) {
+        unit = 1000;
+    } else if (v.endsWith('M')) {
+        unit = 1000 * 1000;
+    }
+    const downloads = parseFloat(v) * unit;
+
+    console.log(item.name, downloads);
+
+    return {
+        downloads
+    };
 };
 
 const getPackageInfo = async (item) => {
-    const jsonPath = path.resolve(__dirname, `../.temp/${item.name}.json`);
+    const jsonPath = path.resolve(__dirname, `../.temp/packages/${item.name}.json`);
     let info = readJSON(jsonPath);
     if (!info || info.date !== date) {
         info = await generatePackageInfo(item);
@@ -289,7 +320,7 @@ const generateReadme = (list) => {
 };
 
 const start = async () => {
-    const jsonPath = path.resolve(__dirname, '../.temp/npm-packages.json');
+    const jsonPath = path.resolve(__dirname, '../.temp/packages.json');
     let info = readJSON(jsonPath);
     if (!info || info.date !== date) {
         const packages = await generatePackages();
@@ -331,12 +362,10 @@ const start = async () => {
     //console.log(packages);
 
     const downloads = packages.map((item) => {
-        const ds = item.info.downloads.pop();
         return {
             name: item.name,
             description: item.description,
-            downloads: ds.downloads,
-            label: ds.label
+            downloads: item.info.downloads
         };
 
     });
@@ -364,9 +393,6 @@ const start = async () => {
         }, {
             id: 'downloads',
             name: 'downloads'
-        }, {
-            id: 'label',
-            name: 'label'
         }],
         rows: rows
     });

@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/cenfun/cenfun#readme",
   "dependencies": {
+    "axios": "^0.27.2",
+    "cheerio": "^1.0.0-rc.12",
     "console-grid": "^1.0.17",
     "eight-colors": "^1.0.1",
     "puppeteer-chromium-resolver": "^15.0.0"
