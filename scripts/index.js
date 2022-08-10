@@ -210,13 +210,14 @@ const generatePackageInfo = async (item) => {
         return;
     }
     const v = text.split('/').shift();
+    //console.log(v);
     let unit = 1;
     if (v.endsWith('k')) {
         unit = 1000;
     } else if (v.endsWith('M')) {
         unit = 1000 * 1000;
     }
-    const downloads = parseFloat(v) * unit;
+    const downloads = (parseFloat(v) || 0) * unit;
 
     console.log(item.name, downloads);
 
@@ -347,7 +348,8 @@ const start = async () => {
     const excludes = [
         'lz-compress',
         'turbochart',
-        'svg-to-symbol'
+        'svg-to-symbol',
+        'playwright-report-grid'
     ];
     //filter wci-
     const packages = info.packages.filter((it) => {
