@@ -347,6 +347,7 @@ const start = async () => {
 
     const excludes = [
         'lz-compress',
+        'turbogrid',
         'turbochart',
         'svg-to-symbol',
         'playwright-report-grid'
