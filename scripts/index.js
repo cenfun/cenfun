@@ -184,7 +184,7 @@ const generatePackages = async () => {
 
 const generatePackageInfo = async (item) => {
 
-    const svgUrl = `https://img.shields.io/npm/dw/${item.name}`;
+    const svgUrl = `https://img.shields.io/npm/dm/${item.name}`;
 
     EC.logCyan(`loading info ${svgUrl} ...`);
 
@@ -288,7 +288,7 @@ const generateReadme = (list) => {
             `![npm](https://img.shields.io/npm/v/${item.name})`,
             `[![dependencies](https://img.shields.io/librariesio/github/cenfun/${item.name})](https://github.com/cenfun/${item.name}/network/dependencies)`,
             `[![dependents](https://img.shields.io/librariesio/dependents/npm/${item.name})](https://github.com/cenfun/${item.name}/network/dependents)`,
-            `[![npm](https://img.shields.io/npm/dw/${item.name})](https://www.npmjs.com/package/${item.name})`
+            `[![npm](https://img.shields.io/npm/dm/${item.name})](https://www.npmjs.com/package/${item.name})`
         ];
     });
 
@@ -346,7 +346,6 @@ const start = async () => {
 
 
     const excludes = [
-        'lz-compress',
         'turbogrid',
         'turbochart',
         'svg-to-symbol',
