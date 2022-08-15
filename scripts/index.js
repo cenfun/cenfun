@@ -285,10 +285,10 @@ const generateReadme = (list) => {
         return [
             i + 1,
             `[${item.name}](https://github.com/cenfun/${item.name})`,
-            `![npm](https://img.shields.io/npm/v/${item.name})`,
-            `[![dependencies](https://img.shields.io/librariesio/github/cenfun/${item.name})](https://github.com/cenfun/${item.name}/network/dependencies)`,
-            `[![dependents](https://badgen.net/github/dependents-repo/cenfun/${item.name})](https://github.com/cenfun/${item.name}/network/dependents)`,
-            `[![npm](https://badgen.net/npm/dt/${item.name})](https://www.npmjs.com/package/${item.name})`
+            `[![](https://img.shields.io/npm/v/${item.name})](https://www.npmjs.com/package/${item.name})`,
+            `[![](https://img.shields.io/librariesio/github/cenfun/${item.name})](https://github.com/cenfun/${item.name}/network/dependencies)`,
+            `[![](https://badgen.net/github/dependents-repo/cenfun/${item.name})](https://github.com/cenfun/${item.name}/network/dependents)`,
+            `[![](https://badgen.net/npm/dt/${item.name})](https://www.npmjs.com/package/${item.name})`
         ];
     });
 
