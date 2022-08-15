@@ -4,6 +4,7 @@ const path = require('path');
 const EC = require('eight-colors');
 const PCR = require('puppeteer-chromium-resolver');
 const ConsoleGrid = require('console-grid');
+const MG = require('markdown-grid');
 const axios = require('axios');
 const cheerio = require('cheerio');
 
@@ -92,8 +93,8 @@ const launchBrowser = async () => {
     EC.logCyan('launching browser ...');
     const stats = await PCR({});
     browser = await stats.puppeteer.launch({
-        headless: false,
-        devtools: true,
+        //headless: false,
+        //devtools: true,
         args: [
             '--no-sandbox',
             '--no-default-browser-check',
@@ -168,15 +169,22 @@ const generatePackages = async () => {
         });
     });
 
+    await page.close();
+    EC.logCyan('page closed');
+
+    await closeBrowser();
+
     if (!packages) {
         EC.logRed('Invalid packages ');
         return;
     }
 
-    await page.close();
-    EC.logCyan('page closed');
+    const minNum = 28;
 
-    await closeBrowser();
+    if (packages.length < minNum) {
+        EC.logRed(`Found packages less than ${minNum}: ${packages.length}`);
+        return;
+    }
 
     return packages;
 };
@@ -241,44 +249,6 @@ const getPackageInfo = async (item) => {
     return item;
 };
 
-const getMarkDownTable = function(d) {
-    //console.log(d);
-    const lines = [];
-
-    const header = [''];
-    d.columns.forEach((c, i) => {
-        const cn = c.name || '';
-        header.push(cn.padEnd(c.width, ' '));
-    });
-    lines.push(header.join('|'));
-
-    const line = [''];
-    d.columns.forEach((c) => {
-        if (c.align === 'right') {
-            line.push(`${''.padEnd(c.width - 1, '-')}:`);
-        } else {
-            line.push(''.padEnd(c.width, '-'));
-        }
-
-    });
-    lines.push(line.join('|'));
-
-    d.rows.forEach((r) => {
-        const row = [''];
-        d.columns.forEach((c, i) => {
-            const s = `${r[i]}`;
-            if (c.align === 'right') {
-                row.push(s.padStart(c.width, ' '));
-            } else {
-                row.push(s.padEnd(c.width, ' '));
-            }
-        });
-        lines.push(row.join('|'));
-    });
-
-    return lines.join('\r\n');
-};
-
 const generateReadme = (list) => {
     EC.logCyan('generating list ...');
     const projects = list.map((item, i) => {
@@ -320,7 +290,7 @@ const generateReadme = (list) => {
     let content = readFileContent(path.resolve(__dirname, 'template/README.md'));
     //console.log(content);
     content = replace(content, {
-        'placeholder-projects': getMarkDownTable(d)
+        'placeholder-projects': MG(d)
     });
 
     writeFileContent(path.resolve(__dirname, '../README.md'), content);
@@ -344,18 +314,14 @@ const start = async () => {
         writeFileContent(jsonPath, JSON.stringify(info, null, 4));
     }
 
-
     const excludes = [
         'turbogrid',
         'turbochart',
         'svg-to-symbol',
         'playwright-report-grid'
     ];
-    //filter wci-
+
     const packages = info.packages.filter((it) => {
-        if (it.name.startsWith('wci-')) {
-            return false;
-        }
         if (excludes.includes(it.name)) {
             return false;
         }
