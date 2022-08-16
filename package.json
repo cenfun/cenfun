@@ -1,32 +1,32 @@
 {
-  "name": "cenfun",
-  "version": "1.0.0",
-  "description": "I'm Front-end/Node.js developer. Please check out my open source projects following.",
-  "main": "index.js",
-  "scripts": {
-    "build": "node ./scripts"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cenfun/cenfun.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/cenfun/cenfun/issues"
-  },
-  "homepage": "https://github.com/cenfun/cenfun#readme",
-  "dependencies": {
-    "axios": "^0.27.2",
-    "cheerio": "^1.0.0-rc.12",
-    "console-grid": "^1.0.17",
-    "eight-colors": "^1.0.1",
-    "markdown-grid": "^1.0.1",
-    "puppeteer-chromium-resolver": "^15.0.0"
-  },
-  "devDependencies": {
-    "eslint": "^8.20.0",
-    "eslint-config-plus": "^1.0.3",
-    "eslint-plugin-html": "^7.0.0"
-  }
+    "name": "cenfun",
+    "version": "1.0.0",
+    "description": "I'm Front-end/Node.js developer. Please check out my open source projects following.",
+    "main": "index.js",
+    "scripts": {
+        "build": "node ./scripts"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/cenfun/cenfun.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/cenfun/cenfun/issues"
+    },
+    "homepage": "https://github.com/cenfun/cenfun#readme",
+    "dependencies": {
+        "axios": "^0.27.2",
+        "cheerio": "^1.0.0-rc.12",
+        "console-grid": "^2.0.0",
+        "eight-colors": "^1.0.1",
+        "markdown-grid": "^1.0.1",
+        "puppeteer-chromium-resolver": "^16.0.0"
+    },
+    "devDependencies": {
+        "eslint": "^8.22.0",
+        "eslint-config-plus": "^1.0.3",
+        "eslint-plugin-html": "^7.1.0"
+    }
 }

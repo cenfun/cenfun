@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const EC = require('eight-colors');
 const PCR = require('puppeteer-chromium-resolver');
-const ConsoleGrid = require('console-grid');
+const CG = require('console-grid');
 const MG = require('markdown-grid');
 const axios = require('axios');
 const cheerio = require('cheerio');
@@ -355,9 +355,7 @@ const start = async () => {
         item.index = i + 1;
         rows.push(item);
     });
-    const consoleGrid = new ConsoleGrid();
-    consoleGrid.render({
-        option: {},
+    CG({
         columns: [{
             id: 'index',
             name: 'No.',
