@@ -133,7 +133,7 @@ const generatePackages = async () => {
     await delay(500);
 
     EC.logCyan('getting packages ...');
-    const packages = await page.evaluate(async () => {
+    const info = await page.evaluate(async () => {
         const wait = (ms) => {
             return new Promise((resolve) => {
                 if (ms) {
@@ -143,6 +143,10 @@ const generatePackages = async () => {
                 }
             });
         };
+
+        const context = window.__context__.context;
+
+        const total = context.packages.total;
 
         const showMore = async () => {
             const showMoreButton = document.evaluate("//a[text()='show more packages']", document).iterateNext();
@@ -158,7 +162,7 @@ const generatePackages = async () => {
 
         const list = Array.from(document.querySelectorAll('#tabpanel-packages ul li'));
 
-        return list.map((el) => {
+        const packages = list.map((el) => {
             const a = el.querySelector('a');
             const p = el.querySelector('p');
             return {
@@ -167,6 +171,11 @@ const generatePackages = async () => {
                 description: p && p.innerText
             };
         });
+
+        return {
+            total,
+            packages
+        };
     });
 
     await page.close();
@@ -174,19 +183,17 @@ const generatePackages = async () => {
 
     await closeBrowser();
 
-    if (!packages) {
+    if (!info) {
         EC.logRed('Invalid packages ');
         return;
     }
 
-    const minNum = 28;
-
-    if (packages.length < minNum) {
-        EC.logRed(`Found packages less than ${minNum}: ${packages.length}`);
+    if (info.packages.length < info.total) {
+        EC.logRed(`Found packages less than ${info.total}: ${info.packages.length}`);
         return;
     }
 
-    return packages;
+    return info.packages;
 };
 
 
@@ -255,33 +262,34 @@ const generateReadme = (list) => {
         return [
             i + 1,
             `[${item.name}](https://github.com/cenfun/${item.name})`,
-            `[![](https://img.shields.io/npm/v/${item.name})](https://www.npmjs.com/package/${item.name})`,
-            `[![](https://img.shields.io/librariesio/github/cenfun/${item.name})](https://github.com/cenfun/${item.name}/network/dependencies)`,
-            `[![](https://badgen.net/github/dependents-repo/cenfun/${item.name})](https://github.com/cenfun/${item.name}/network/dependents)`,
-            `[![](https://badgen.net/npm/dt/${item.name})](https://www.npmjs.com/package/${item.name})`
+            `[![](https://img.shields.io/npm/v/${item.name}?label=)](https://www.npmjs.com/package/${item.name})`,
+            `[![](https://img.shields.io/librariesio/github/cenfun/${item.name}?label=)](https://github.com/cenfun/${item.name}/network/dependencies)`,
+            `[![](https://badgen.net/github/dependents-repo/cenfun/${item.name}?label=)](https://github.com/cenfun/${item.name}/network/dependents)`,
+            `[![](https://badgen.net/npm/dw/${item.name}?label=)](https://www.npmjs.com/package/${item.name})`,
+            `[![](https://badgen.net/npm/dt/${item.name}?label=)](https://www.npmjs.com/package/${item.name})`
         ];
     });
 
     const d = {
         columns: [{
             name: '',
-            width: 2,
-            align: 'right'
+            align: 'center'
         }, {
-            name: 'Name',
-            width: 30
+            name: 'Name'
         }, {
-            name: 'Version',
-            width: 7
+            name: 'Version'
         }, {
             name: 'Dependencies',
-            width: 12
+            align: 'right'
         }, {
-            name: 'Dependents',
-            width: 10
+            name: 'Repos',
+            align: 'right'
         }, {
             name: 'Downloads',
-            width: 9
+            align: 'right'
+        }, {
+            name: '',
+            align: 'right'
         }],
         rows: projects
     };
@@ -366,7 +374,8 @@ const start = async () => {
             name: 'Name'
         }, {
             id: 'downloads',
-            name: 'downloads'
+            name: 'downloads',
+            align: 'right'
         }],
         rows: rows
     });
