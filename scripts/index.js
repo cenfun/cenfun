@@ -275,9 +275,11 @@ const generateReadme = (list) => {
             name: '',
             align: 'center'
         }, {
-            name: 'Name'
+            name: 'Name',
+            align: 'left'
         }, {
-            name: 'Version'
+            name: 'Version',
+            align: 'left'
         }, {
             name: 'Dependencies',
             align: 'right'
