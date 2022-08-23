@@ -327,7 +327,7 @@ const start = async () => {
     const excludes = [
         'turbogrid',
         'turbochart',
-        'svg-to-symbol',
+        'wc-icons',
         'playwright-report-grid'
     ];
 
