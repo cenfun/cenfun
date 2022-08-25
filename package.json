@@ -20,7 +20,7 @@
         "axios": "^0.27.2",
         "cheerio": "^1.0.0-rc.12",
         "console-grid": "^2.0.0",
-        "eight-colors": "^1.0.1",
+        "eight-colors": "^1.0.2",
         "markdown-grid": "^1.0.1",
         "puppeteer-chromium-resolver": "^16.0.0"
     },

@@ -153,7 +153,7 @@ const generatePackages = async () => {
             if (showMoreButton) {
                 console.log('show more ...');
                 showMoreButton.click();
-                await wait(1000);
+                await wait(2000);
                 return showMore();
             }
         };
@@ -327,7 +327,6 @@ const start = async () => {
     const excludes = [
         'turbogrid',
         'turbochart',
-        'wc-icons',
         'playwright-report-grid'
     ];
 
