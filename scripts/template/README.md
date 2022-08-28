@@ -1,6 +1,8 @@
 ### Hi 👋
 
-I'm Front-end/Node.js developer. Check my top open source projects following.
+I'm a Front-end/Node.js developer.  
+Looking for a good job :) email: [cenfun@qq.com](cenfun@qq.com) Thanks!  
+Check my top open source projects following:
 
 {placeholder-projects}
   
