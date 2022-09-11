@@ -199,7 +199,7 @@ const generatePackages = async () => {
 
 const generatePackageInfo = async (item) => {
 
-    const svgUrl = `https://img.shields.io/npm/dw/${item.name}`;
+    const svgUrl = `https://img.shields.io/npm/dm/${item.name}`;
 
     EC.logCyan(`loading info ${svgUrl} ...`);
 
@@ -265,8 +265,7 @@ const generateReadme = (list) => {
             `[![](https://img.shields.io/npm/v/${item.name}?label=)](https://www.npmjs.com/package/${item.name})`,
             `[![](https://img.shields.io/librariesio/github/cenfun/${item.name}?label=)](https://github.com/cenfun/${item.name}/network/dependencies)`,
             `[![](https://badgen.net/github/dependents-repo/cenfun/${item.name}?label=)](https://github.com/cenfun/${item.name}/network/dependents)`,
-            `[![](https://badgen.net/npm/dw/${item.name}?label=)](https://www.npmjs.com/package/${item.name})`,
-            `[![](https://badgen.net/npm/dt/${item.name}?label=)](https://www.npmjs.com/package/${item.name})`
+            `[![](http://img.bayuguai.com/npm/lmd/${item.name})](https://www.npmjs.com/package/${item.name})`
         ];
     });
 
@@ -288,10 +287,7 @@ const generateReadme = (list) => {
             align: 'right'
         }, {
             name: 'Downloads',
-            align: 'right'
-        }, {
-            name: '',
-            align: 'right'
+            align: 'left'
         }],
         rows: projects
     };
