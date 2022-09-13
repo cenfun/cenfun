@@ -197,48 +197,26 @@ const generatePackages = async () => {
 };
 
 
+//https://github.com/npm/registry/blob/master/docs/download-counts.md
 const generatePackageInfo = async (item) => {
 
-    const svgUrl = `https://img.shields.io/npm/dm/${item.name}`;
+    const url = `https://api.npmjs.org/downloads/point/last-month/${item.name}`;
 
-    EC.logCyan(`loading info ${svgUrl} ...`);
+    EC.logCyan(`loading info ${url} ...`);
 
     let failed;
-    const res = await axios.get(svgUrl, {
+    const res = await axios.get(url, {
         timeout: 10 * 1000
     }).catch(function(e) {
         EC.logRed(e);
         failed = true;
     });
 
-    if (failed) {
+    if (failed || !res.data) {
         return;
     }
 
-    const $ = cheerio.load(res.data, {
-        xmlMode: true
-    });
-
-    const text = $('svg').find('text').last().text();
-    if (!text) {
-        EC.logRed(`Not found text: ${item.name}`);
-        return;
-    }
-    const v = text.split('/').shift();
-    //console.log(v);
-    let unit = 1;
-    if (v.endsWith('k')) {
-        unit = 1000;
-    } else if (v.endsWith('M')) {
-        unit = 1000 * 1000;
-    }
-    const downloads = (parseFloat(v) || 0) * unit;
-
-    console.log(item.name, downloads);
-
-    return {
-        downloads
-    };
+    return res.data;
 };
 
 const getPackageInfo = async (item) => {
@@ -247,6 +225,7 @@ const getPackageInfo = async (item) => {
     if (!info || info.date !== date) {
         info = await generatePackageInfo(item);
         if (!info) {
+            EC.logRed(`not found info: ${item.name}`);
             return;
         }
         info.date = date;
@@ -265,7 +244,7 @@ const generateReadme = (list) => {
             `[![](https://img.shields.io/npm/v/${item.name}?label=)](https://www.npmjs.com/package/${item.name})`,
             `[![](https://img.shields.io/librariesio/github/cenfun/${item.name}?label=)](https://github.com/cenfun/${item.name}/network/dependencies)`,
             `[![](https://badgen.net/github/dependents-repo/cenfun/${item.name}?label=)](https://github.com/cenfun/${item.name}/network/dependents)`,
-            `[![](http://img.bayuguai.com/npm/downloads/${item.name})](https://www.npmjs.com/package/${item.name})`
+            `[![](https://img.bayuguai.com/npm/downloads/${item.name})](https://www.npmjs.com/package/${item.name})`
         ];
     });
 
