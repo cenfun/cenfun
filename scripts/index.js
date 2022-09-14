@@ -6,7 +6,6 @@ const PCR = require('puppeteer-chromium-resolver');
 const CG = require('console-grid');
 const MG = require('markdown-grid');
 const axios = require('axios');
-const cheerio = require('cheerio');
 
 const date = new Date().toLocaleDateString();
 
