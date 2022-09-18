@@ -5,6 +5,8 @@ Looking for a good job :) email: [cenfun@qq.com](cenfun@qq.com) Thanks!
 Check my top open source projects following:
 
 {placeholder-projects}
+
+[![](https://img.bayuguai.com/github/contributions/cenfun)](https://github.com/cenfun)
   
 [![](https://img.bayuguai.com/github/languages/cenfun)](https://github.com/cenfun)
 
