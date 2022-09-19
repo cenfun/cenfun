@@ -244,7 +244,7 @@ const generateReadme = (list) => {
             `[![](https://img.shields.io/librariesio/github/cenfun/${item.name}?label=)](https://github.com/cenfun/${item.name}/network/dependencies)`,
             `[![](https://badgen.net/github/dependents-repo/cenfun/${item.name}?label=)](https://github.com/cenfun/${item.name}/network/dependents)`,
             `[![](https://img.bayuguai.com/npm/downloads/${item.name})](https://www.npmjs.com/package/${item.name})`,
-            `[![](https://packagephobia.com/badge?p=${item.name})](https://packagephobia.com/result?p=${item.name})`
+            `[![](https://img.bayuguai.com/npm/size/${item.name})](https://www.npmjs.com/package/${item.name})`
         ];
     });
 
