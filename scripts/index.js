@@ -243,7 +243,8 @@ const generateReadme = (list) => {
             `[![](https://img.shields.io/npm/v/${item.name}?label=)](https://www.npmjs.com/package/${item.name})`,
             `[![](https://img.shields.io/librariesio/github/cenfun/${item.name}?label=)](https://github.com/cenfun/${item.name}/network/dependencies)`,
             `[![](https://badgen.net/github/dependents-repo/cenfun/${item.name}?label=)](https://github.com/cenfun/${item.name}/network/dependents)`,
-            `[![](https://img.bayuguai.com/npm/downloads/${item.name})](https://www.npmjs.com/package/${item.name})`
+            `[![](https://img.bayuguai.com/npm/downloads/${item.name})](https://www.npmjs.com/package/${item.name})`,
+            `![](https://img.shields.io/bundlephobia/min/${item.name}?label=)`
         ];
     });
 
@@ -266,6 +267,9 @@ const generateReadme = (list) => {
         }, {
             name: 'Downloads',
             align: 'left'
+        }, {
+            name: 'Size',
+            align: 'right'
         }],
         rows: projects
     };
