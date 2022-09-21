@@ -241,10 +241,10 @@ const generateReadme = (list) => {
             i + 1,
             `[${item.name}](https://github.com/cenfun/${item.name})`,
             `[![](https://img.shields.io/npm/v/${item.name}?label=)](https://www.npmjs.com/package/${item.name})`,
-            `[![](https://img.shields.io/librariesio/github/cenfun/${item.name}?label=)](https://github.com/cenfun/${item.name}/network/dependencies)`,
             `[![](https://badgen.net/github/dependents-repo/cenfun/${item.name}?label=)](https://github.com/cenfun/${item.name}/network/dependents)`,
             `[![](https://img.bayuguai.com/npm/downloads/${item.name})](https://www.npmjs.com/package/${item.name})`,
-            `[![](https://img.bayuguai.com/npm/size/${item.name})](https://www.npmjs.com/package/${item.name})`
+            `[![](https://img.bayuguai.com/npm/size/${item.name})](https://www.npmjs.com/package/${item.name})`,
+            `[![](https://img.bayuguai.com/npm/dependencies/${item.name})](https://github.com/cenfun/${item.name}/network/dependencies)`
         ];
     });
 
@@ -259,9 +259,6 @@ const generateReadme = (list) => {
             name: 'Version',
             align: 'left'
         }, {
-            name: 'Dependencies',
-            align: 'right'
-        }, {
             name: 'Repos',
             align: 'right'
         }, {
@@ -269,6 +266,9 @@ const generateReadme = (list) => {
             align: 'left'
         }, {
             name: 'Size',
+            align: 'right'
+        }, {
+            name: 'Dependencies',
             align: 'right'
         }],
         rows: projects
