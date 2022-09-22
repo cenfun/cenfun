@@ -243,8 +243,8 @@ const generateReadme = (list) => {
             `[![](https://img.shields.io/npm/v/${item.name}?label=)](https://www.npmjs.com/package/${item.name})`,
             `[![](https://badgen.net/github/dependents-repo/cenfun/${item.name}?label=)](https://github.com/cenfun/${item.name}/network/dependents)`,
             `[![](https://img.bayuguai.com/npm/downloads/${item.name})](https://www.npmjs.com/package/${item.name})`,
-            `[![](https://img.bayuguai.com/npm/size/${item.name})](https://www.npmjs.com/package/${item.name})`,
-            `[![](https://img.bayuguai.com/npm/dependencies/${item.name})](https://github.com/cenfun/${item.name}/network/dependencies)`
+            `[![](https://img.bayuguai.com/npm/size/${item.name}?label=)](https://www.npmjs.com/package/${item.name})`,
+            `[![](https://img.bayuguai.com/npm/dependencies/${item.name}?label=)](https://github.com/cenfun/${item.name}/network/dependencies)`
         ];
     });
 
@@ -303,7 +303,6 @@ const start = async () => {
     }
 
     const excludes = [
-        'turbogrid',
         'turbochart',
         'playwright-report-grid'
     ];
