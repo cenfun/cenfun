@@ -303,6 +303,7 @@ const start = async () => {
     }
 
     const excludes = [
+        'turbogrid',
         'turbochart',
         'playwright-report-grid'
     ];
