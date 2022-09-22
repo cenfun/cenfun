@@ -38,10 +38,12 @@ Check my top open source projects following:
 | 30|[screencast-gif](https://github.com/cenfun/screencast-gif)|[![](https://img.shields.io/npm/v/screencast-gif?label=)](https://www.npmjs.com/package/screencast-gif)|[![](https://badgen.net/github/dependents-repo/cenfun/screencast-gif?label=)](https://github.com/cenfun/screencast-gif/network/dependents)|[![](https://img.bayuguai.com/npm/downloads/screencast-gif)](https://www.npmjs.com/package/screencast-gif)|[![](https://img.bayuguai.com/npm/size/screencast-gif)](https://www.npmjs.com/package/screencast-gif)|[![](https://img.bayuguai.com/npm/dependencies/screencast-gif)](https://github.com/cenfun/screencast-gif/network/dependencies)|
 | 31|[open-store](https://github.com/cenfun/open-store)|[![](https://img.shields.io/npm/v/open-store?label=)](https://www.npmjs.com/package/open-store)|[![](https://badgen.net/github/dependents-repo/cenfun/open-store?label=)](https://github.com/cenfun/open-store/network/dependents)|[![](https://img.bayuguai.com/npm/downloads/open-store)](https://www.npmjs.com/package/open-store)|[![](https://img.bayuguai.com/npm/size/open-store)](https://www.npmjs.com/package/open-store)|[![](https://img.bayuguai.com/npm/dependencies/open-store)](https://github.com/cenfun/open-store/network/dependencies)|
 | 32|[lithops-ui](https://github.com/cenfun/lithops-ui)|[![](https://img.shields.io/npm/v/lithops-ui?label=)](https://www.npmjs.com/package/lithops-ui)|[![](https://badgen.net/github/dependents-repo/cenfun/lithops-ui?label=)](https://github.com/cenfun/lithops-ui/network/dependents)|[![](https://img.bayuguai.com/npm/downloads/lithops-ui)](https://www.npmjs.com/package/lithops-ui)|[![](https://img.bayuguai.com/npm/size/lithops-ui)](https://www.npmjs.com/package/lithops-ui)|[![](https://img.bayuguai.com/npm/dependencies/lithops-ui)](https://github.com/cenfun/lithops-ui/network/dependencies)|
-
-[![](https://img.bayuguai.com/github/contributions/cenfun)](https://github.com/cenfun)
   
 [![](https://img.bayuguai.com/github/languages/cenfun)](https://github.com/cenfun)
+
+[![](https://img.bayuguai.com/github/contributions/cenfun)](https://github.com/cenfun)
+
+[![](https://streak-stats.demolab.com/?user=cenfun)](https://github.com/cenfun)
 
 [![](https://github-readme-stats.vercel.app/api?username=cenfun&show_icons=true&count_private=true)](https://github.com/cenfun)
 

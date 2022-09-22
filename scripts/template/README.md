@@ -5,10 +5,12 @@ Looking for a good job :) email: [cenfun@qq.com](cenfun@qq.com) Thanks!
 Check my top open source projects following:
 
 {placeholder-projects}
-
-[![](https://img.bayuguai.com/github/contributions/cenfun)](https://github.com/cenfun)
   
 [![](https://img.bayuguai.com/github/languages/cenfun)](https://github.com/cenfun)
+
+[![](https://img.bayuguai.com/github/contributions/cenfun)](https://github.com/cenfun)
+
+[![](https://streak-stats.demolab.com/?user=cenfun)](https://github.com/cenfun)
 
 [![](https://github-readme-stats.vercel.app/api?username=cenfun&show_icons=true&count_private=true)](https://github.com/cenfun)
 
