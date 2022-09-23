@@ -48,4 +48,4 @@ Check my top open source projects following:
 [![](https://github-readme-stats.vercel.app/api?username=cenfun&show_icons=true&count_private=true)](https://github.com/cenfun)
 
 [![](https://komarev.com/ghpvc/?username=cenfun)](https://github.com/cenfun)  
-Generating [scripts](/scripts/index.js)  and own badges [bayuguai](https://github.com/cenfun/img.bayuguai.com)
+Generated [scripts](/scripts/index.js)  and own badges [bayuguai](https://github.com/cenfun/img.bayuguai.com)
