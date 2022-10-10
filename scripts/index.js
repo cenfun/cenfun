@@ -89,7 +89,7 @@ const launchBrowser = async () => {
     if (browser) {
         return browser;
     }
-    EC.logCyan('launching browser ...');
+    EC.log('launching browser ...');
     const stats = await PCR({});
     browser = await stats.puppeteer.launch({
         //headless: false,
@@ -127,11 +127,11 @@ const generatePackages = async () => {
     await launchBrowser();
     const page = await browser.newPage();
     const url = 'https://www.npmjs.com/~cenfun';
-    EC.logCyan(`open page ${url} ...`);
+    EC.log(`open page ${url} ...`);
     await page.goto(url);
     await delay(500);
 
-    EC.logCyan('getting packages ...');
+    EC.log('getting packages ...');
     const info = await page.evaluate(async () => {
         const wait = (ms) => {
             return new Promise((resolve) => {
@@ -178,7 +178,7 @@ const generatePackages = async () => {
     });
 
     await page.close();
-    EC.logCyan('page closed');
+    EC.log('page closed');
 
     await closeBrowser();
 
@@ -186,6 +186,8 @@ const generatePackages = async () => {
         EC.logRed('Invalid packages ');
         return;
     }
+
+    EC.logGreen(`Found packages: ${info.packages.length}`);
 
     if (info.packages.length < info.total) {
         EC.logRed(`Found packages less than ${info.total}: ${info.packages.length}`);
@@ -201,7 +203,7 @@ const generatePackageInfo = async (item) => {
 
     const url = `https://api.npmjs.org/downloads/point/last-month/${item.name}`;
 
-    EC.logCyan(`loading info ${url} ...`);
+    EC.log(`loading info ${url} ...`);
 
     let failed;
     const res = await axios.get(url, {
@@ -235,7 +237,7 @@ const getPackageInfo = async (item) => {
 };
 
 const generateReadme = (list) => {
-    EC.logCyan('generating list ...');
+    EC.log('generating list ...');
     const projects = list.map((item, i) => {
         return [
             i + 1,
