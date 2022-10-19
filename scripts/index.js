@@ -1,4 +1,4 @@
-
+const os = require('os');
 const fs = require('fs');
 const path = require('path');
 const EC = require('eight-colors');
@@ -92,8 +92,8 @@ const launchBrowser = async () => {
     EC.log('launching browser ...');
     const stats = await PCR({});
     browser = await stats.puppeteer.launch({
-        //headless: false,
-        //devtools: true,
+        // headless: false,
+        // devtools: true,
         args: [
             '--no-sandbox',
             '--no-default-browser-check',
@@ -198,7 +198,7 @@ const generatePackages = async () => {
 };
 
 
-//https://github.com/npm/registry/blob/master/docs/download-counts.md
+// https://github.com/npm/registry/blob/master/docs/download-counts.md
 const generatePackageInfo = async (item) => {
 
     const url = `https://api.npmjs.org/downloads/point/last-month/${item.name}`;
@@ -236,17 +236,22 @@ const getPackageInfo = async (item) => {
     return item;
 };
 
-const generateReadme = (list) => {
-    EC.log('generating list ...');
-    const projects = list.map((item, i) => {
+const generateGrid = (list) => {
+    const rows = list.map((item, i) => {
+        const name = item.name;
+        let repo = item.repo;
+        if (!repo) {
+            repo = `${name}/${name}`;
+        }
+
         return [
             i + 1,
-            `[${item.name}](https://github.com/cenfun/${item.name})`,
-            `[![](https://img.shields.io/npm/v/${item.name}?label=)](https://www.npmjs.com/package/${item.name})`,
-            `[![](https://badgen.net/github/dependents-repo/cenfun/${item.name}?label=)](https://github.com/cenfun/${item.name}/network/dependents)`,
-            `[![](https://img.bayuguai.com/npm/downloads/${item.name})](https://www.npmjs.com/package/${item.name})`,
-            `[![](https://img.bayuguai.com/npm/size/${item.name}?label=)](https://www.npmjs.com/package/${item.name})`,
-            `[![](https://img.bayuguai.com/npm/dependencies/${item.name}?label=)](https://github.com/cenfun/${item.name}/network/dependencies)`
+            `[${name}](https://github.com/${repo})`,
+            `[![](https://img.shields.io/npm/v/${name}?label=)](https://www.npmjs.com/package/${name})`,
+            `[![](https://badgen.net/github/dependents-repo/${repo}?label=)](https://github.com/${repo}/network/dependents)`,
+            `[![](https://img.bayuguai.com/npm/downloads/${name})](https://www.npmjs.com/package/${name})`,
+            `[![](https://img.bayuguai.com/npm/size/${name}?label=)](https://www.npmjs.com/package/${name})`,
+            `[![](https://img.bayuguai.com/npm/dependencies/${name}?label=)](https://github.com/${repo}/network/dependencies)`
         ];
     });
 
@@ -273,14 +278,22 @@ const generateReadme = (list) => {
             name: 'Dependencies',
             align: 'right'
         }],
-        rows: projects
+        rows
     };
 
+    return MG(d);
+};
+
+const generateReadme = (list) => {
+    EC.log('generating README ...');
 
     let content = readFileContent(path.resolve(__dirname, 'template/README.md'));
-    //console.log(content);
+    // console.log(content);
     content = replace(content, {
-        'placeholder-projects': MG(d)
+        'placeholder-projects': generateGrid(list.map((item) => {
+            item.repo = `cenfun/${item.name}`;
+            return item;
+        }))
     });
 
     writeFileContent(path.resolve(__dirname, '../README.md'), content);
@@ -288,7 +301,7 @@ const generateReadme = (list) => {
     EC.logGreen('saved README.md');
 };
 
-const start = async () => {
+const generateCenfun = async () => {
     const jsonPath = path.resolve(__dirname, '../.temp/packages.json');
     let info = readJSON(jsonPath);
     if (!info || info.date !== date) {
@@ -323,7 +336,7 @@ const start = async () => {
         }
     }
 
-    //console.log(packages);
+    // console.log(packages);
 
     const downloads = packages.map((item) => {
         return {
@@ -360,9 +373,127 @@ const start = async () => {
         rows: rows
     });
 
-    //downloads.length = 15;
+    // downloads.length = 15;
 
     generateReadme(downloads);
+};
+
+const generateBestOfJS = () => {
+    EC.log('generating Best Of JS ...');
+
+    const lines = ['# Best Of JS'];
+
+    const groups = [{
+        name: 'UI frameworks',
+        subs: [{
+            name: 'react',
+            repo: 'facebook/react'
+        }, {
+            name: 'jquery'
+        }, {
+            name: 'vue',
+            repo: 'vuejs/core'
+        }, {
+            name: 'lit'
+        }, {
+            name: 'svelte',
+            repo: 'sveltejs/svelte'
+        }, {
+            name: 'solid-js',
+            repo: 'solidjs/solid'
+        }]
+    }, {
+        name: 'Build Tools',
+        subs: [{
+            name: 'webpack'
+        }, {
+            name: 'rollup'
+        }, {
+            name: 'esbuild',
+            repo: 'evanw/esbuild'
+        }, {
+            name: 'vite',
+            repo: 'vitejs/vite'
+        }]
+    }, {
+        name: 'Node.js Web Server',
+        subs: [{
+            name: 'express',
+            repo: 'expressjs/express'
+        }, {
+            name: 'connect',
+            repo: 'senchalabs/connect'
+        }, {
+            name: 'koa',
+            repo: 'koajs/koa'
+        }, {
+            name: 'fastify'
+        }]
+    }, {
+        name: 'Headless Browser',
+        subs: [{
+            name: 'puppeteer'
+        }, {
+            name: 'playwright',
+            repo: 'microsoft/playwright'
+        }]
+    }, {
+        name: 'Testing',
+        subs: [{
+            name: 'jest',
+            repo: 'facebook/jest'
+        }, {
+            name: 'mocha',
+            repo: 'mochajs/mocha'
+        }]
+    }, {
+        name: 'Desktop',
+        subs: [{
+            name: 'electron'
+        }, {
+            name: 'tauri',
+            repo: 'tauri-apps/tauri'
+        }]
+    }, {
+        name: 'Lint',
+        subs: [{
+            name: 'eslint'
+        }, {
+            name: 'stylelint'
+        }]
+    }, {
+        name: 'Tools',
+        subs: [{
+            name: 'lodash'
+        }, {
+            name: 'axios'
+        }, {
+            name: 'd3'
+        }, {
+            name: 'three',
+            repo: 'mrdoob/three.js'
+        }]
+    }];
+
+
+    groups.forEach((p) => {
+        lines.push(os.EOL);
+        lines.push(`## ${p.name}`);
+        lines.push(generateGrid(p.subs));
+    });
+
+
+    const content = lines.join(os.EOL);
+
+    writeFileContent(path.resolve(__dirname, '../BestOfJS.md'), content);
+
+    EC.logGreen('saved BestOfJS.md');
+};
+
+const start = async () => {
+
+    await generateCenfun();
+    await generateBestOfJS();
 
 };
 

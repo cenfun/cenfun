@@ -12,7 +12,10 @@ Check my top open source projects following:
 
 [![](https://streak-stats.demolab.com/?user=cenfun)](https://github.com/cenfun)
 
-[![](https://github-readme-stats.vercel.app/api?username=cenfun&show_icons=true&count_private=true)](https://github.com/cenfun)
+[![](https://github-readme-stats.vercel.app/api?username=cenfun&show_icons=true&count_private=true)](https://github.com/cenfun) 
 
-[![](https://komarev.com/ghpvc/?username=cenfun)](https://github.com/cenfun)  
-Generated [scripts](/scripts/index.js)  and own badges [bayuguai](https://github.com/cenfun/img.bayuguai.com)
+[![](https://komarev.com/ghpvc/?username=cenfun)](https://github.com/cenfun) 
+
+- Badges [BaYuGuai](https://github.com/cenfun/img.bayuguai.com)  
+- [Best Of JS](/BestOfJS.md)  
+- Generated [Scripts](/scripts/)  
