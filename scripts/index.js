@@ -245,7 +245,7 @@ const generateGrid = (list) => {
         }
 
         return [
-            i + 1,
+            item.index || i + 1,
             `[${name}](https://github.com/${repo})`,
             `[![](https://img.shields.io/npm/v/${name}?label=)](https://www.npmjs.com/package/${name})`,
             `[![](https://badgen.net/github/dependents-repo/${repo}?label=)](https://github.com/${repo}/network/dependents)`,
@@ -287,13 +287,28 @@ const generateGrid = (list) => {
 const generateReadme = (list) => {
     EC.log('generating README ...');
 
+    list.forEach((item, i) => {
+        item.index = i + 1;
+        item.repo = `cenfun/${item.name}`;
+    });
+
+    const top10 = generateGrid(list.slice(0, 10));
+
+    const more = generateGrid(list.slice(10));
+
     let content = readFileContent(path.resolve(__dirname, 'template/README.md'));
     // console.log(content);
     content = replace(content, {
-        'placeholder-projects': generateGrid(list.map((item) => {
-            item.repo = `cenfun/${item.name}`;
-            return item;
-        }))
+        'placeholder-projects': `${top10}
+<details>
+<summary>More Projects ...</summary>
+
+${more}
+
+</details>
+
+---
+`
     });
 
     writeFileContent(path.resolve(__dirname, '../README.md'), content);
