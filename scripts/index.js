@@ -401,13 +401,13 @@ const generateBestOfJS = () => {
     const groups = [{
         name: 'UI frameworks',
         subs: [{
+            name: 'vue',
+            repo: 'vuejs/core'
+        }, {
             name: 'react',
             repo: 'facebook/react'
         }, {
             name: 'jquery'
-        }, {
-            name: 'vue',
-            repo: 'vuejs/core'
         }, {
             name: 'lit'
         }, {
@@ -422,10 +422,10 @@ const generateBestOfJS = () => {
         subs: [{
             name: 'webpack'
         }, {
-            name: 'rollup'
-        }, {
             name: 'esbuild',
             repo: 'evanw/esbuild'
+        }, {
+            name: 'rollup'
         }, {
             name: 'vite',
             repo: 'vitejs/vite'
