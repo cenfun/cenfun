@@ -345,10 +345,7 @@ const generateCenfun = async () => {
     });
 
     for (const item of packages) {
-        const res = await getPackageInfo(item);
-        if (!res) {
-            return;
-        }
+        await getPackageInfo(item);
     }
 
     // console.log(packages);
@@ -357,7 +354,7 @@ const generateCenfun = async () => {
         return {
             name: item.name,
             description: item.description,
-            downloads: item.info.downloads
+            downloads: item.info ? item.info.downloads : 0
         };
 
     });
@@ -401,11 +398,11 @@ const generateBestOfJS = () => {
     const groups = [{
         name: 'UI frameworks',
         subs: [{
-            name: 'vue',
-            repo: 'vuejs/core'
-        }, {
             name: 'react',
             repo: 'facebook/react'
+        }, {
+            name: 'vue',
+            repo: 'vuejs/core'
         }, {
             name: 'jquery'
         }, {
@@ -460,6 +457,24 @@ const generateBestOfJS = () => {
         }, {
             name: 'mocha',
             repo: 'mochajs/mocha'
+        }, {
+            name: '@playwright/test',
+            repo: 'microsoft/playwright'
+        }]
+    }, {
+        name: 'Testing Reporters',
+        subs: [{
+            name: 'allure-playwright',
+            repo: 'allure-framework/allure-js'
+        }, {
+            name: 'monocart-reporter',
+            repo: 'cenfun/monocart-reporter'
+        }, {
+            name: '@reportportal/agent-js-playwright',
+            repo: 'reportportal/agent-js-playwright'
+        }, {
+            name: 'playwright-tesults-reporter',
+            repo: 'tesults/playwright-tesults-reporter'
         }]
     }, {
         name: 'Desktop',
