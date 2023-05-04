@@ -21,7 +21,7 @@
         "console-grid": "^2.0.1",
         "eight-colors": "^1.0.3",
         "markdown-grid": "^1.0.1",
-        "puppeteer-chromium-resolver": "^19.3.2"
+        "puppeteer-chromium-resolver": "^20.0.0"
     },
     "devDependencies": {
         "eslint": "^8.39.0",

@@ -92,7 +92,7 @@ const launchBrowser = async () => {
     EC.log('launching browser ...');
     const stats = await PCR({});
     browser = await stats.puppeteer.launch({
-        // headless: false,
+        headless: 'new',
         // devtools: true,
         args: [
             '--no-sandbox',
@@ -413,6 +413,9 @@ const generateBestOfJS = () => {
         }, {
             name: 'solid-js',
             repo: 'solidjs/solid'
+        }, {
+            name: 'vine-ui',
+            repo: 'cenfun/vine-ui'
         }]
     }, {
         name: 'Build Tools',
@@ -426,6 +429,9 @@ const generateBestOfJS = () => {
         }, {
             name: 'vite',
             repo: 'vitejs/vite'
+        }, {
+            name: 'starfall-cli',
+            repo: 'cenfun/starfall-cli'
         }]
     }, {
         name: 'Node.js Web Server',
@@ -440,6 +446,9 @@ const generateBestOfJS = () => {
             repo: 'koajs/koa'
         }, {
             name: 'fastify'
+        }, {
+            name: 'koa-static-resolver',
+            repo: 'cenfun/koa-static-resolver'
         }]
     }, {
         name: 'Headless Browser',
@@ -448,6 +457,9 @@ const generateBestOfJS = () => {
         }, {
             name: 'playwright',
             repo: 'microsoft/playwright'
+        }, {
+            name: 'puppeteer-chromium-resolver',
+            repo: 'cenfun/puppeteer-chromium-resolver'
         }]
     }, {
         name: 'Testing',
@@ -460,6 +472,9 @@ const generateBestOfJS = () => {
         }, {
             name: '@playwright/test',
             repo: 'microsoft/playwright'
+        }, {
+            name: 'monocart',
+            repo: 'cenfun/monocart'
         }]
     }, {
         name: 'Testing Reporters',
@@ -467,14 +482,27 @@ const generateBestOfJS = () => {
             name: 'allure-playwright',
             repo: 'allure-framework/allure-js'
         }, {
-            name: 'monocart-reporter',
-            repo: 'cenfun/monocart-reporter'
-        }, {
             name: '@reportportal/agent-js-playwright',
             repo: 'reportportal/agent-js-playwright'
         }, {
             name: 'playwright-tesults-reporter',
             repo: 'tesults/playwright-tesults-reporter'
+        }, {
+            name: 'monocart-reporter',
+            repo: 'cenfun/monocart-reporter'
+        }]
+    }, {
+        name: 'Lint',
+        subs: [{
+            name: 'eslint'
+        }, {
+            name: 'stylelint'
+        }, {
+            name: 'eslint-config-plus',
+            repo: 'confun/eslint-config-plus'
+        }, {
+            name: 'stylelint-config-plus',
+            repo: 'confun/stylelint-config-plus'
         }]
     }, {
         name: 'Desktop',
@@ -483,13 +511,6 @@ const generateBestOfJS = () => {
         }, {
             name: 'tauri',
             repo: 'tauri-apps/tauri'
-        }]
-    }, {
-        name: 'Lint',
-        subs: [{
-            name: 'eslint'
-        }, {
-            name: 'stylelint'
         }]
     }, {
         name: 'Tools',
