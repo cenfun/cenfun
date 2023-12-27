@@ -17,14 +17,14 @@
         "url": "https://github.com/cenfun/cenfun/issues"
     },
     "dependencies": {
-        "axios": "^1.6.0",
+        "axios": "^1.6.3",
         "console-grid": "^2.0.1",
         "eight-colors": "^1.0.3",
         "markdown-grid": "^1.0.1",
         "puppeteer-chromium-resolver": "^21.0.0"
     },
     "devDependencies": {
-        "eslint": "^8.52.0",
+        "eslint": "^8.56.0",
         "eslint-config-plus": "^1.0.6",
         "eslint-plugin-html": "^7.1.0"
     }
