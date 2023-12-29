@@ -363,6 +363,9 @@ const generateCenfun = async () => {
         return b.downloads - a.downloads;
     });
 
+    // only top 20
+    downloads.length = 20;
+
     const rows = [];
     downloads.forEach((item, i) => {
         item.index = i + 1;
