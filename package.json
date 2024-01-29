@@ -17,9 +17,9 @@
         "url": "https://github.com/cenfun/cenfun/issues"
     },
     "dependencies": {
-        "axios": "^1.6.3",
-        "console-grid": "^2.0.1",
-        "eight-colors": "^1.0.3",
+        "axios": "^1.6.7",
+        "console-grid": "^2.1.0",
+        "eight-colors": "^1.2.1",
         "markdown-grid": "^1.0.1",
         "puppeteer-chromium-resolver": "^21.0.0"
     },
