@@ -249,9 +249,8 @@ const generateGrid = (list) => {
             `[${name}](https://github.com/${repo})`,
             `[![](https://img.shields.io/npm/v/${name}?label=)](https://www.npmjs.com/package/${name})`,
             `[![](https://badgen.net/github/dependents-repo/${repo}?label=)](https://github.com/${repo}/network/dependents)`,
-            `[![](https://img.bayuguai.com/npm/downloads/${name})](https://www.npmjs.com/package/${name})`,
-            `[![](https://img.bayuguai.com/npm/size/${name}?label=)](https://www.npmjs.com/package/${name})`,
-            `[![](https://img.bayuguai.com/npm/dependencies/${name}?label=)](https://github.com/${repo}/network/dependencies)`
+            `[![](https://badgen.net/npm/dm/${name}?label=)](https://www.npmjs.com/package/${name})`,
+            `[![](https://img.shields.io/bundlephobia/min/${name}?label=)](https://www.npmjs.com/package/${name})`
         ];
     });
 
@@ -273,9 +272,6 @@ const generateGrid = (list) => {
             align: 'left'
         }, {
             name: 'Size',
-            align: 'right'
-        }, {
-            name: 'Dependencies',
             align: 'right'
         }],
         rows
