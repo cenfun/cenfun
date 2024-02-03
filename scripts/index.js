@@ -473,24 +473,36 @@ const generateBestOfJS = () => {
         }, {
             name: '@playwright/test',
             repo: 'microsoft/playwright'
-        }, {
-            name: 'monocart',
-            repo: 'cenfun/monocart'
         }]
     }, {
-        name: 'Testing Reporters',
+        name: 'Playwright Testing Reporters',
         subs: [{
+            name: 'monocart-reporter',
+            repo: 'cenfun/monocart-reporter'
+        }, {
             name: 'allure-playwright',
             repo: 'allure-framework/allure-js'
         }, {
             name: '@reportportal/agent-js-playwright',
             repo: 'reportportal/agent-js-playwright'
         }, {
+            name: '@currents/playwright',
+            repo: 'currents-dev'
+        }, {
+            name: '@testomatio/reporter',
+            repo: 'testomatio/reporter'
+        }, {
+            name: '@argos-ci/playwright',
+            repo: 'argos-ci/argos-javascript'
+        }, {
             name: 'playwright-tesults-reporter',
             repo: 'tesults/playwright-tesults-reporter'
         }, {
-            name: 'monocart-reporter',
-            repo: 'cenfun/monocart-reporter'
+            name: '@serenity-js/playwright',
+            repo: 'serenity-js/serenity-js'
+        }, {
+            name: 'playwright-testmo-reporter',
+            repo: 'jonasclaes/playwright-testmo-reporter'
         }]
     }, {
         name: 'Lint',
