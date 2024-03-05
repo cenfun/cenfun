@@ -12,8 +12,6 @@ Check my top open source projects following:
 
 [![](https://github-readme-stats.vercel.app/api?username=cenfun&show_icons=true&count_private=true)](https://github.com/cenfun) 
 
-[![](https://github-readme-stats.vercel.app/api/wakatime?username=cenfun)](https://github.com/cenfun)
-
 [![](https://komarev.com/ghpvc/?username=cenfun)](https://github.com/cenfun) 
   
 - [Best Of JS](/BestOfJS.md)  
