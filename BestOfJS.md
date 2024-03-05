@@ -48,7 +48,7 @@
 | 2 |[mocha](https://github.com/mochajs/mocha)|[![](https://img.shields.io/npm/v/mocha?label=)](https://www.npmjs.com/package/mocha)|[![](https://badgen.net/github/dependents-repo/mochajs/mocha?label=)](https://github.com/mochajs/mocha/network/dependents)|[![](https://badgen.net/npm/dm/mocha?label=)](https://www.npmjs.com/package/mocha)|[![](https://img.shields.io/bundlephobia/min/mocha?label=)](https://www.npmjs.com/package/mocha)|
 | 3 |[@playwright/test](https://github.com/microsoft/playwright)|[![](https://img.shields.io/npm/v/@playwright/test?label=)](https://www.npmjs.com/package/@playwright/test)|[![](https://badgen.net/github/dependents-repo/microsoft/playwright?label=)](https://github.com/microsoft/playwright/network/dependents)|[![](https://badgen.net/npm/dm/@playwright/test?label=)](https://www.npmjs.com/package/@playwright/test)|[![](https://img.shields.io/bundlephobia/min/@playwright/test?label=)](https://www.npmjs.com/package/@playwright/test)|
 
- 
+
 ## Playwright Testing Reporters
 |   |Name|Version|Repos|Downloads|Size|
 |:-:|:---|:------|----:|:--------|---:|
