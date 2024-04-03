@@ -427,6 +427,9 @@ const generateBestOfJS = () => {
             name: 'vite',
             repo: 'vitejs/vite'
         }, {
+            name: 'parcel',
+            repo: 'parcel-bundler/parcel'
+        }, {
             name: 'starfall-cli',
             repo: 'cenfun/starfall-cli'
         }]
