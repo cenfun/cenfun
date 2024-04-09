@@ -126,7 +126,7 @@ const generatePackages = async () => {
 
     await launchBrowser();
     const page = await browser.newPage();
-    const url = 'https://www.npmjs.com/~cenfun';
+    const url = 'https://npmjs.com/~cenfun';
     EC.log(`open page ${url} ...`);
     await page.goto(url);
     await delay(500);
