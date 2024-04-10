@@ -1,7 +1,7 @@
 ### Hi 👋
 
 I'm a Front-end/Node.js developer.  
-Looking for a good job :) email: [cenfun@gmail.com](cenfun@gmail.com) Thanks!  
+Looking for a good job :) email: [cenfun@gmail.com](mailto:cenfun@gmail.com) Thanks!  
 Check my top open source projects following:
 
 {placeholder-projects}
