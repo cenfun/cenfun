@@ -249,7 +249,7 @@ const generateGrid = (list) => {
             `[${name}](https://github.com/${repo})`,
             `[![](https://img.shields.io/npm/v/${name}?label=)](https://www.npmjs.com/package/${name})`,
             `[![](https://badgen.net/github/dependents-repo/${repo}?label=)](https://github.com/${repo}/network/dependents)`,
-            `[![](https://badgen.net/npm/dm/${name}?label=)](https://www.npmjs.com/package/${name})`,
+            `[![](https://bayuguai.vercel.app/npm/downloads/${name})](https://www.npmjs.com/package/${name})`,
             `[![](https://img.shields.io/bundlephobia/min/${name}?label=)](https://www.npmjs.com/package/${name})`
         ];
     });
