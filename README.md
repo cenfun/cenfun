@@ -37,8 +37,8 @@ Check my top open source projects following:
 ---
 
 
-![](http://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=cenfun&theme=github)
-![](http://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=cenfun&theme=github&utcOffset=8)
+![](https://devimg.vercel.app/github/languages/cenfun)
+![](https://devimg.vercel.app/github/contributions/cenfun)
   
 [![](https://streak-stats.demolab.com/?user=cenfun)](https://github.com/cenfun)
 
