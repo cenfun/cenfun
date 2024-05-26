@@ -8,7 +8,6 @@ Check my top open source projects following:
 
 ![](https://devimg.vercel.app/github/languages/cenfun)
 ![](https://devimg.vercel.app/github/contributions/cenfun)
-  
-[![](https://streak-stats.demolab.com/?user=cenfun)](https://github.com/cenfun)
+![](https://devimg.vercel.app/github/profile/cenfun)
 
 [![](https://komarev.com/ghpvc/?username=cenfun)](https://github.com/cenfun) 
