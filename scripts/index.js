@@ -248,9 +248,8 @@ const generateGrid = (list) => {
             item.index || i + 1,
             `[${name}](https://github.com/${repo})`,
             `[![](https://img.shields.io/npm/v/${name}?label=)](https://www.npmjs.com/package/${name})`,
-            `[![](https://badgen.net/github/dependents-repo/${repo}?label=)](https://github.com/${repo}/network/dependents)`,
             `[![](https://devimg.vercel.app/npm/downloads/${name})](https://www.npmjs.com/package/${name})`,
-            `[![](https://img.shields.io/bundlephobia/min/${name}?label=)](https://www.npmjs.com/package/${name})`
+            `[![](https://badgen.net/github/dependents-repo/${repo}?label=)](https://github.com/${repo}/network/dependents)`
         ];
     });
 
@@ -265,13 +264,10 @@ const generateGrid = (list) => {
             name: 'Version',
             align: 'left'
         }, {
-            name: 'Repos',
-            align: 'right'
-        }, {
             name: 'Downloads',
             align: 'left'
         }, {
-            name: 'Size',
+            name: 'Repos',
             align: 'right'
         }],
         rows
