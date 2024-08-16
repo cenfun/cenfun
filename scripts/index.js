@@ -92,7 +92,7 @@ const launchBrowser = async () => {
     EC.log('launching browser ...');
     const stats = await PCR({});
     browser = await stats.puppeteer.launch({
-        headless: 'new',
+        // headless: 'new',
         // devtools: true,
         args: [
             '--no-sandbox',
