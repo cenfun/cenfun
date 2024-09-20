@@ -24,7 +24,7 @@
         "puppeteer-chromium-resolver": "^23.0.0"
     },
     "devDependencies": {
-        "eslint": "^9.9.1",
+        "eslint": "^9.10.0",
         "eslint-config-plus": "^2.0.2",
         "eslint-plugin-html": "^8.1.1"
     }
