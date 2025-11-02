@@ -2,7 +2,7 @@ const os = require('os');
 const fs = require('fs');
 const path = require('path');
 const EC = require('eight-colors');
-const PCR = require('puppeteer-chromium-resolver');
+const playwright = require('playwright');
 const CG = require('console-grid');
 const MG = require('markdown-grid');
 const axios = require('axios');
@@ -90,26 +90,9 @@ const launchBrowser = async () => {
         return browser;
     }
     EC.log('launching browser ...');
-    const stats = await PCR({});
-    browser = await stats.puppeteer.launch({
-        // headless: 'new',
-        // devtools: true,
-        args: [
-            '--no-sandbox',
-            '--no-default-browser-check',
-            '--disable-setuid-sandbox',
-            '--disable-translate',
-            '--disable-gpu',
-            '--disable-infobars',
-            '--disable-notifications',
-            '--disable-save-password-bubble',
-            '--start-maximized'
-        ],
-        ignoreDefaultArgs: [
-            '--hide-scrollbars',
-            '--enable-automation'
-        ],
-        executablePath: stats.executablePath
+    browser = await playwright.chromium.launch({
+        headless: false,
+        devtools: true
     }).catch(function(error) {
         EC.logRed(error);
     });
